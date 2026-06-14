@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 실수령액 & 실업급여 계산기</title>
-    <!-- 디자인 전용 파일과 연결선만 깔끔하게 남겨두었습니다 -->
+    <title>실수령액 & 실업급여 계산기 | 최신 요율 반영</title>
+    <!-- 디자인 전용 파일 연결 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- 상단 헤더 (지저분한 배지를 없애고 초깔끔하게 정렬) -->
     <header>
-        <div class="header-container">
-            <div class="logo">💰실수령액 & 실업급여 계산기</div>
-            <div class="badge">2026 최신 요율</div>
+        <div class="header-container" style="max-width: 460px; margin: 0 auto; padding: 24px 16px; text-align: center; display: flex; justify-content: center; align-items: center;">
+            <!-- 🚨 년도가 알아서 자동으로 바뀌는 진짜 깔끔한 대제목 딱 하나만 남겼습니다 -->
+            <h1 class="logo" style="font-size: 24px; font-weight: 900; color: #3182f6; tracking-tight: -0.02em;">
+                💰 <span id="title-year">2026</span> 실수령액 & 실업급여 계산기
+            </h1>
         </div>
     </header>
 
     <main>
-        <div class="ad-box">[📢 구글 애드센스 광고 영역]</div>
+        <div class="ad-box">[📢 구글 애드센스 상단 광고 영역]</div>
 
         <div class="tabs">
             <button id="tab-salary" class="tab-btn active" onclick="switchTab('salary')">월 실수령액</button>
@@ -49,7 +52,7 @@
                         <span class="input-unit">만원</span>
                     </div>
                 </div>
-                <button class="submit-btn" onclick="calcSalary()">실수령액 계산하기</button>
+                <button class="submit-btn" onclick="calcSalary()">3초만에 실수령액 계산하기</button>
             </div>
 
             <div id="result-salary" class="result-box">
@@ -63,6 +66,17 @@
                 <div class="result-row"><span class="result-label">장기요양보험 (12.95%)</span><span class="result-value" id="res-lti">0원</span></div>
                 <div class="result-row"><span class="result-label">고용보험 (0.9%)</span><span class="result-value" id="res-ei">0원</span></div>
                 <div class="result-total-row"><span>총 공제액 합계</span><span class="text-danger" id="res-deduct">0원</span></div>
+            </div>
+            
+            <!-- 구글 로봇 통과용 지식 가이드 카드 -->
+            <div class="card" style="margin-top: 20px; background: #fafafa; border: 1px solid #e5e8eb;">
+                <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #4e5968;">💡 알아두면 돈이 되는 연봉 상식 Guide</h3>
+                <p style="font-size: 14px; color: #4e5968; line-height: 1.6; margin-bottom: 10px;">
+                    많은 직장인들이 연봉 협상 후 통장에 찍히는 실수령액을 보고 당황하곤 합니다. 그 이유는 대한민국 세법에 따른 4대 보험 요율과 근로소득세가 원천징수되기 때문입니다. 고용보험은 0.9%, 국민연금은 4.5%가 적용되며, 매년 고시되는 요율에 따라 미세한 차이가 발생합니다.
+                </p>
+                <p style="font-size: 14px; color: #4e5968; line-height: 1.6;">
+                    특히 비과세 항목(식대 등)을 적절히 설정하면 과세표준 금액이 낮아져 매달 나가는 근로소득세를 절세할 수 있는 혜택이 주어집니다. 본 계산기를 통해 매달 공제되는 세금 내역을 명확히 파악하고 나만의 자산 파이프라인을 체계적으로 기획해 보세요.
+                </p>
             </div>
         </div>
 
@@ -106,16 +120,28 @@
                 <div class="result-row"><span class="result-label">1일 지급액 (구직급여일액)</span><span class="result-value" id="res-unemp-daily">0원</span></div>
                 <div class="result-row"><span class="result-label">월평균 수령액 (30일 기준)</span><span class="result-value" id="res-unemp-month">0원</span></div>
             </div>
+            
+            <!-- 실업급여용 가이드 카드 -->
+            <div class="card" style="margin-top: 20px; background: #fafafa; border: 1px solid #e5e8eb;">
+                <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: #4e5968;">🏥 실업급여(구직급여) 수급 자격 필독 가이드</h3>
+                <p style="font-size: 14px; color: #4e5968; line-height: 1.6; margin-bottom: 10px;">
+                    실업급여는 근로의 의사와 능력이 있음에도 불구하고 비자발적으로 이직한 퇴사자에게 재취업 활동 기간 동안 소정의 급여를 지급하는 신뢰도 높은 국가 제도입니다. 수급 자격 요건 중 가장 중요한 것은 퇴사 전 18개월간 고용보험 피보험 단위기간이 통산 180일 이상이어야 한다는 점입니다.
+                </p>
+                <p style="font-size: 14px; color: #4e5968; line-height: 1.6;">
+                    지급액은 이직 전 평균임금의 60%를 기준으로 계산되나, 법정 상한액과 하한액 규정이 엄격히 존재합니다. 연령과 가입 기간에 따라 최소 120일에서 최대 270일까지 수급 기간이 다르게 산정되므로 본 모의 계산 결과를 통해 안정적인 이직 플랜을 기획해 보시기 바랍니다.
+                </p>
+            </div>
         </div>
 
-        <div class="ad-box" style="margin-top: 16px;">[📢 구글 애드센스 광고 영역]</div>
+        <div class="ad-box" style="margin-top: 16px;">[📢 구글 애드센스 하단 광고 영역]</div>
     </main>
 
     <footer>
-        <p>© 2026 머니파이프라인 프로젝트. All rights reserved.</p>
+        <p>© <span id="footer-year">2026</span> 머니파이프라인 프로젝트. All rights reserved.</p>
         <p>본 계산기는 모의 결과이며 법적 효력이 없습니다.</p>
     </footer>
 
+    <!-- 자바스크립트 파일 로드 -->
     <script src="script.js"></script>
 </body>
 </html>

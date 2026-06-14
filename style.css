@@ -20,30 +20,29 @@ header {
     z-index: 50; 
 }
 .header-container { 
-    max-w: 420px; 
-    max-width: 420px;
+    max-width: 460px; /* 화면 폭을 살짝 넓힘 */
     margin: 0 auto; 
-    padding: 16px; 
+    padding: 20px 16px; /* 여백 확대 */
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
 }
 .logo { 
-    font-size: 20px; 
+    font-size: 24px; /* 🚀 글씨 확대 (20px -> 24px) */
     font-weight: 900; 
     color: #3182f6; 
     letter-spacing: -0.02em; 
 }
 .badge { 
-    font-size: 11px; 
+    font-size: 13px; /* 🚀 글씨 확대 */
     background: #e8f3ff; 
     color: #3182f6; 
-    padding: 4px 10px; 
+    padding: 6px 12px; 
     border-radius: 99px; 
     font-weight: 700; 
 }
 main { 
-    max-width: 420px; 
+    max-width: 460px; /* 화면 폭을 살짝 넓힘 */
     width: 100%; 
     margin: 0 auto; 
     padding: 16px; 
@@ -52,31 +51,31 @@ main {
 .ad-box { 
     background: #ffffff; 
     border-radius: 16px; 
-    padding: 16px; 
+    padding: 20px; 
     text-align: center; 
-    font-size: 12px; 
+    font-size: 14px; /* 🚀 광고 안내 글씨 확대 */
     color: #8b95a1; 
     border: 1px dashed #dbdeeb; 
-    min-height: 80px; 
+    min-height: 90px; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    margin-bottom: 16px; 
+    margin-bottom: 20px; 
 }
 .tabs { 
     display: flex; 
     background: #e5e8eb; 
-    padding: 4px; 
-    border-radius: 12px; 
-    margin-bottom: 20px; 
+    padding: 6px; /* 더 도톰하게 */
+    border-radius: 14px; 
+    margin-bottom: 24px; 
 }
 .tab-btn { 
     flex: 1; 
-    padding: 12px 0; 
+    padding: 14px 0; /* 🚀 탭 버튼 더 큼직하게 */
     text-align: center; 
-    font-size: 14px; 
-    font-weight: 700; 
-    border-radius: 9px; 
+    font-size: 17px; /* 🚀 글씨 대폭 확대 (14px -> 17px) */
+    font-weight: 800; 
+    border-radius: 10px; 
     border: none; 
     cursor: pointer; 
     transition: all 0.2s; 
@@ -86,45 +85,45 @@ main {
 .tab-btn.active { 
     background: #ffffff; 
     color: #191f28; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06); 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
 }
 .card { 
     background: #ffffff; 
-    padding: 24px; 
+    padding: 28px 24px; /* 내부 여백 확대 */
     border-radius: 24px; 
-    box-shadow: 0 4px 16px rgba(0,0,0,0.03); 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04); 
     border: 1px solid rgba(0,0,0,0.01); 
-    margin-bottom: 16px; 
-}
-.card-title { 
-    font-size: 18px; 
-    font-weight: 700; 
-    color: #191f28; 
     margin-bottom: 20px; 
 }
+.card-title { 
+    font-size: 21px; /* 🚀 제목 글씨 확대 (18px -> 21px) */
+    font-weight: 800; 
+    color: #191f28; 
+    margin-bottom: 24px; 
+}
 .form-group { 
-    margin-bottom: 16px; 
+    margin-bottom: 20px; 
 }
 .form-label { 
-    font-size: 12px; 
+    font-size: 15px; /* 🚀 입력창 설명 글씨 확대 (12px -> 15px) */
     font-weight: 700; 
     color: #4e5968; 
-    margin-bottom: 8px; 
+    margin-bottom: 10px; 
     display: block; 
 }
 .toggle-group { 
     display: flex; 
     background: #f2f4f7; 
-    padding: 4px; 
-    border-radius: 10px; 
-    gap: 4px; 
+    padding: 6px; 
+    border-radius: 12px; 
+    gap: 6px; 
 }
 .toggle-btn { 
     flex: 1; 
-    padding: 8px 0; 
-    font-size: 12px; 
+    padding: 12px 0; /* 연봉/월급 선택 버튼 확대 */
+    font-size: 15px; /* 🚀 글씨 확대 */
     font-weight: 700; 
-    border-radius: 7px; 
+    border-radius: 8px; 
     border: none; 
     cursor: pointer; 
     background: transparent; 
@@ -142,92 +141,94 @@ main {
 }
 .form-input, .form-select { 
     width: 100%; 
-    padding: 14px 16px; 
+    padding: 16px 20px; /* 🚀 입력창 더 도톰하고 큼직하게 */
     background: #f9fafb; 
     border: 1px solid #e5e8eb; 
-    border-radius: 12px; 
-    font-size: 16px; 
-    font-weight: 700; 
+    border-radius: 14px; 
+    font-size: 20px; /* 🚀 입력하는 숫자 글씨 대폭 확대 (16px -> 20px) */
+    font-weight: 800; 
     text-align: right; 
-    padding-right: 55px; 
+    padding-right: 65px; 
     outline: none; 
     transition: all 0.2s; 
 }
 .form-select { 
     text-align: left; 
-    padding-right: 16px; 
+    padding-right: 20px; 
     color: #191f28; 
     cursor: pointer; 
     appearance: none; 
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b95a1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); 
     background-repeat: no-repeat; 
-    background-position: right 12px center; 
-    background-size: 16px; 
+    background-position: right 16px center; 
+    background-size: 18px; 
 }
 .form-input:focus, .form-select:focus { 
     border-color: #3182f6; 
     background: #ffffff; 
+    box-shadow: 0 0 0 4px rgba(49, 130, 246, 0.1);
 }
 .input-unit { 
     position: absolute; 
-    right: 16px; 
-    font-weight: 700; 
+    right: 20px; 
+    font-weight: 800; 
     color: #8b95a1; 
-    font-size: 14px; 
+    font-size: 16px; /* 🚀 '만원/세' 단위 글씨 확대 */
     pointer-events: none; 
 }
 .submit-btn { 
     width: 100%; 
-    padding: 16px; 
+    padding: 18px; /* 🚀 계산하기 버튼 더 뚱뚱하고 누르기 쉽게 */
     background: #3182f6; 
     color: #ffffff; 
-    font-size: 15px; 
-    font-weight: 700; 
+    font-size: 18px; /* 🚀 버튼 글씨 대폭 확대 (15px -> 18px) */
+    font-weight: 800; 
     border: none; 
-    border-radius: 14px; 
+    border-radius: 16px; 
     cursor: pointer; 
-    margin-top: 8px; 
+    margin-top: 12px; 
     transition: background 0.2s; 
+    box-shadow: 0 4px 14px rgba(49, 130, 246, 0.2);
 }
 .submit-btn:hover { 
     background: #1b64da; 
 }
 .result-box { 
     background: #ffffff; 
-    padding: 24px; 
+    padding: 28px 24px; 
     border-radius: 24px; 
-    box-shadow: 0 4px 16px rgba(0,0,0,0.03); 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04); 
     border: 1px solid rgba(0,0,0,0.01); 
     display: none; 
-    margin-top: 16px; 
+    margin-top: 20px; 
 }
 .result-header { 
     text-align: center; 
-    padding-bottom: 16px; 
-    border-b: 1px solid #f2f4f7; 
-    border-bottom: 1px solid #f2f4f7;
-    margin-bottom: 16px; 
+    padding-bottom: 20px; 
+    border-bottom: 1px solid #f2f4f7; 
+    margin-bottom: 20px; 
 }
 .result-title { 
-    font-size: 12px; 
+    font-size: 14px; /* 🚀 결과 헤더 글씨 확대 */
     font-weight: 700; 
     color: #8b95a1; 
-    margin-bottom: 4px; 
+    margin-bottom: 6px; 
 }
 .result-main-value { 
-    font-size: 28px; 
+    font-size: 34px; /* 🚀 최종 실수령액 액수 엄청 크게 확대 (28px -> 34px) */
     font-weight: 900; 
     color: #3182f6; 
+    letter-spacing: -0.03em;
 }
 .result-row { 
     display: flex; 
     justify-content: space-between; 
-    font-size: 14px; 
+    font-size: 16px; /* 🚀 세부 세금 항목 글씨 확대 (14px -> 16px) */
     color: #4e5968; 
-    margin-bottom: 12px; 
+    margin-bottom: 16px; 
 }
 .result-label { 
-    font-weight: 500; 
+    font-weight: 600; 
 }
 .result-value { 
     font-weight: 700; 
@@ -236,10 +237,10 @@ main {
 .result-total-row { 
     display: flex; 
     justify-content: space-between; 
-    font-size: 15px; 
+    font-size: 18px; /* 🚀 공제액 합계 글씨 확대 (15px -> 18px) */
     font-weight: 900; 
     color: #191f28; 
-    padding-top: 12px; 
+    padding-top: 16px; 
     border-top: 1px solid #f2f4f7; 
 }
 .text-danger { 
@@ -247,12 +248,12 @@ main {
 }
 footer { 
     background: #ffffff; 
-    padding: 24px 16px; 
+    padding: 28px 16px; 
     border-top: 1px solid #f2f4f7; 
     text-align: center; 
-    font-size: 11px; 
+    font-size: 13px; /* 🚀 하단 안내문 글씨 확대 */
     color: #8b95a1; 
-    line-height: 1.5; 
+    line-height: 1.6; 
 }
 .hidden { 
     display: none !important; 

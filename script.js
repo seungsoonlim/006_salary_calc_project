@@ -140,3 +140,10 @@ function calcUnemployment() {
     // 결과 상자 부드럽게 노출
     document.getElementById('result-unemp').style.display = 'block';
 }
+
+// 🚨 [자동화 시스템] 사이트가 켜질 때 대제목과 푸터의 연도를 올해 년도로 자동 변경
+window.onload = function() {
+    const currentYear = new Date().getFullYear(); // 컴퓨터가 올해가 몇 년도인지 자동으로 계산
+    document.getElementById('title-year').innerText = currentYear; // 대제목 맨 앞 연도 자동 변경
+    document.getElementById('footer-year').innerText = currentYear; // 하단 푸터 연도 자동 변경
+};
