@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>머니파이프라인 | 실수령액 & 실업급여 계산기</title>
+    <!-- 디자인 전용 파일과 연결선만 깔끔하게 남겨두었습니다 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">💰 머니파이프라인</div>
+            <div class="badge">2026 최신 요율</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="ad-box">[📢 구글 애드센스 광고 영역]</div>
+
+        <div class="tabs">
+            <button id="tab-salary" class="tab-btn active" onclick="switchTab('salary')">월 실수령액</button>
+            <button id="tab-unemp" class="tab-btn" onclick="switchTab('unemp')">실업급여 모의계산</button>
+        </div>
+
+        <!-- 1번: 실수령액 계산기 -->
+        <div id="sect-salary">
+            <div class="card">
+                <div class="card-title">💵 내 진짜 월급 계산기</div>
+                <div class="form-group">
+                    <label class="form-label">급여 기준</label>
+                    <div class="toggle-group">
+                        <button id="btn-year" class="toggle-btn active" onclick="setSalaryType('year')">연봉</button>
+                        <button id="btn-month" class="toggle-btn" onclick="setSalaryType('month')">월급</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label id="lbl-amount" class="form-label">연봉 입력</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="input-amount" value="3600" class="form-input">
+                        <span class="input-unit">만원</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">비과세 액수 (식대 등 기본 20만원)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="input-non-tax" value="20" class="form-input">
+                        <span class="input-unit">만원</span>
+                    </div>
+                </div>
+                <button class="submit-btn" onclick="calcSalary()">3초만에 실수령액 계산하기</button>
+            </div>
+
+            <div id="result-salary" class="result-box">
+                <div class="result-header">
+                    <div class="result-title">예상 월 실수령액</div>
+                    <div class="result-main-value" id="res-total-salary">0원</div>
+                </div>
+                <div class="result-row"><span class="result-label">근로소득세 (지방세 포함)</span><span class="result-value" id="res-tax">0원</span></div>
+                <div class="result-row"><span class="result-label">국민연금 (4.5%)</span><span class="result-value" id="res-np">0원</span></div>
+                <div class="result-row"><span class="result-label">건강보험 (3.545%)</span><span class="result-value" id="res-hi">0원</span></div>
+                <div class="result-row"><span class="result-label">장기요양보험 (12.95%)</span><span class="result-value" id="res-lti">0원</span></div>
+                <div class="result-row"><span class="result-label">고용보험 (0.9%)</span><span class="result-value" id="res-ei">0원</span></div>
+                <div class="result-total-row"><span>총 공제액 합계</span><span class="text-danger" id="res-deduct">0원</span></div>
+            </div>
+        </div>
+
+        <!-- 2번: 실업급여 계산기 -->
+        <div id="sect-unemp" class="hidden">
+            <div class="card">
+                <div class="card-title">🏥 실업급여 모의 계산</div>
+                <div class="form-group">
+                    <label class="form-label">퇴사 시 만 나이</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="unemp-age" value="30" class="form-input">
+                        <span class="input-unit">세</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">고용보험 총 가입 기간</label>
+                    <select id="unemp-period" class="form-select">
+                        <option value="1">1년 미만 (최소 180일 이상)</option>
+                        <option value="3" selected>1년 이상 ~ 3년 미만</option>
+                        <option value="5">3년 이상 ~ 5년 미만</option>
+                        <option value="10">5년 이상 ~ 10년 미만</option>
+                        <option value="11">10년 이상</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">퇴사 전 3개월 평균 월급</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="unemp-wage" value="300" class="form-input">
+                        <span class="input-unit">만원</span>
+                    </div>
+                </div>
+                <button class="submit-btn" onclick="calcUnemployment()">지급 금액 및 기간 조회</button>
+            </div>
+
+            <div id="result-unemp" class="result-box">
+                <div class="result-header">
+                    <div class="result-title">예상 총 수급액</div>
+                    <div class="result-main-value" id="res-total-unemp">0원</div>
+                </div>
+                <div class="result-row"><span class="result-label">소정 급여 일수</span><span class="result-value" id="res-unemp-days">0일</span></div>
+                <div class="result-row"><span class="result-label">1일 지급액 (구직급여일액)</span><span class="result-value" id="res-unemp-daily">0원</span></div>
+                <div class="result-row"><span class="result-label">월평균 수령액 (30일 기준)</span><span class="result-value" id="res-unemp-month">0원</span></div>
+            </div>
+        </div>
+
+        <div class="ad-box" style="margin-top: 16px;">[📢 구글 애드센스 광고 영역]</div>
+    </main>
+
+    <footer>
+        <p>© 2026 머니파이프라인 프로젝트. All rights reserved.</p>
+        <p>본 계산기는 모의 결과이며 법적 효력이 없습니다.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
